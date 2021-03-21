@@ -33,12 +33,6 @@ spec:
         - name: app-k8s
           image: CONTAINER_IMAGE
           resources:
-           requests:
-             memory: "256Mi"
-             cpu: "500m"
-           limits:
-             memory: "512Mi"
-             cpu: "1024m"
           securityContext:
             privileged: false
             readOnlyRootFilesystem: true
@@ -46,20 +40,20 @@ spec:
           ports:
             - containerPort: 3000
           env:
-          - name: RDS_HOSTNAME
-            valueFrom:
-              secretKeyRef:
-                name: rds
-                key: host
-          - name: RDS_PORT
-            value: 3306
-          - name: RDS_USERNAME
-            value: demoappuser
-          - name: RDS_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: rds
-                key: password
+            - name: RDS_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rds
+                  key: host
+            - name: RDS_PORT
+              value: 3306
+            - name: RDS_USERNAME
+              value: demoappuser
+            - name: RDS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rds
+                  key: password
 
 
 
