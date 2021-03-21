@@ -46,7 +46,7 @@ spec:
                   name: rds
                   key: host
             - name: RDS_PORT
-              value: 3306
+              value: "3306"
             - name: RDS_USERNAME
               value: demoappuser
             - name: RDS_PASSWORD
