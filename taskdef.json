@@ -2,6 +2,19 @@
     "executionRoleArn": "arn:aws:iam::930252226678:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
+          "name": "xray-daemon",
+          "image": "123456789012.dkr.ecr.us-east-2.amazonaws.com/xray-daemon",    
+          "cpu": 32,
+          "memoryReservation": 256,
+          "portMappings" : [
+              {
+                  "hostPort": 0,
+                  "containerPort": 2000,
+                  "protocol": "udp"
+              }
+          ]
+        }, 
+        {
             "name": "myApp",
             "image": "<IMAGE1_NAME>",
             "essential": true,
@@ -43,6 +56,9 @@
                    "name": "RDS_USERNAME",
                    "value": "demoappuser"
                }
+          ],
+          "links": [
+          "xray-daemon"
           ]
         }
     ],
@@ -54,3 +70,4 @@
     "memory": "512",
     "family": "myApp-Demo"
 }
+
