@@ -1,0 +1,30 @@
+{
+    "taskDefinition": "myApp-Demo:1",
+    "cluster": "myECS",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:930252226678:targetgroup/DemoApp-PrimaryTG/921ca64183f9cd6f",
+            "containerName": "myApp",
+            "containerPort": 3000
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-04aebc727f71998b4",
+                "subnet-03c59b016b8e38944",
+                "subnet-0531d56efd564b323"
+            ],
+            "securityGroups": [
+                "sg-03315f81121ee0d06"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}

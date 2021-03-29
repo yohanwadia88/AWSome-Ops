@@ -1,0 +1,56 @@
+{
+    "executionRoleArn": "arn:aws:iam::930252226678:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "myApp",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "containerPort": 3000
+                }
+            ],
+            "logConfiguration": 
+		         {
+                    "logDriver": "awslogs",
+            		  "secretOptions": null,
+            				"options": {
+          						"awslogs-group": "/ecs/myApp-Demo",
+          						"awslogs-region": "eu-west-1",
+          						"awslogs-stream-prefix": "ecs"
+        						}
+            },
+            "environment": [
+               {
+                    "name": "RDS_DATABASE",
+                    "value": "colors"
+               },
+               {
+                   "name": "RDS_HOSTNAME",
+                   "value": "demordsmyqldbinstance.cw7fxgnkt89h.eu-west-1.rds.amazonaws.com"
+               },
+               {
+                   "name": "RDS_PASSWORD",
+                   "value": "demoappuserpassword"
+               },
+               {
+                   "name": "RDS_PORT",
+                   "value": "3306"
+               },
+               {
+                   "name": "RDS_USERNAME",
+                   "value": "demoappuser"
+               }
+          ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "family": "myApp-Demo"
+}
