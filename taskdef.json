@@ -17,9 +17,9 @@
                     "logDriver": "awslogs",
             		  "secretOptions": null,
             				"options": {
-          						"awslogs-group": "/ecs/myApp-Demo",
+          						"awslogs-group": "ECS-Fargate-x86",
           						"awslogs-region": "eu-west-1",
-          						"awslogs-stream-prefix": "ecs"
+          						"awslogs-stream-prefix": "deploy"
         						}
             },
             "environment": [
