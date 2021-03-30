@@ -12,7 +12,17 @@
                   "containerPort": 2000,
                   "protocol": "udp"
               }
-          ]
+          ],
+            "logConfiguration": 
+		         {
+                  "logDriver": "awslogs",
+            		  "secretOptions": null,
+            				"options": {
+          						"awslogs-group": "ECS-Fargate-x86",
+          						"awslogs-region": "eu-west-1",
+          						"awslogs-stream-prefix": "XRay"
+        						}
+            }
         }, 
         {
             "name": "myApp",
@@ -27,7 +37,7 @@
             ],
             "logConfiguration": 
 		         {
-                    "logDriver": "awslogs",
+                  "logDriver": "awslogs",
             		  "secretOptions": null,
             				"options": {
           						"awslogs-group": "ECS-Fargate-x86",
