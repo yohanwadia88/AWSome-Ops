@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
           "name": "xray-daemon",
-          "image": "123456789012.dkr.ecr.us-east-2.amazonaws.com/xray-daemon",    
+          "image": "amazon/aws-xray-daemon",    
           "cpu": 32,
           "memoryReservation": 256,
           "portMappings" : [
