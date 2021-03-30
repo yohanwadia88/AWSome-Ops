@@ -56,9 +56,6 @@
                    "name": "RDS_USERNAME",
                    "value": "demoappuser"
                }
-          ],
-          "links": [
-          "xray-daemon"
           ]
         }
     ],
